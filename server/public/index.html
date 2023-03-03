@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Koalla Holla</title>
-    <link rel="stylesheet" href="views/styles.css">
+    <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
     <header>
@@ -14,12 +14,17 @@
     </header>
     <section id="addKoala">
       <h2>Add Koala</h2>
-      <input type="text" id="nameIn" value="" placeholder="Name">
-      <input type="text" id="ageIn" value="" placeholder="Age">
-      <input type="text" id="genderIn" value="" placeholder="Gender">
-      <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
-      <input type="text" id="notesIn" value="" placeholder="Notes">
-      <button type="button" id="addButton">Add Koala</button>
+      <form onSubmit ="submitForm(event)">
+        <input type="text" id="nameIn" value="" placeholder="Name">
+        <input type="text" id="ageIn" value="" placeholder="Age">
+        <input type="text" id="genderIn" value="" placeholder="Gender">
+        <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
+        <input type="text" id="notesIn" value="" placeholder="Notes">
+          <button onClick="addKoala(event)" type="button" id="addButton">Add Koala</button>
+      </form>
+      <div id="content">
+
+          </div>
     </section>
     <section>
       <h2>All Koalas</h2>
@@ -31,12 +36,26 @@
             <th>Gender</th>
             <th>Ready for Transfer</th>
             <th>Notes</th>
+            <th>Mark Ready</th>
+            <th>Remove</th>
           </tr>
         </thead>
         <tbody id="viewKoalas">
+          <tr>
+            <td>Joe</td>
+            <td>5</td>
+            <td>Male</td>
+            <td>true</td>
+            <td>Loves to sleep</td>
+            <td> <!-- Ready for transfer button--></td>
+            <td><button onClick="deleteRow(button)">Delete</button></td>
+          </tr>
+          
+<!-- </section> -->
         </tbody>
       </table>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!--Added for server functionality-->
     <script src="scripts/client.js" charset="utf-8"></script>
   </body>
 </html>
