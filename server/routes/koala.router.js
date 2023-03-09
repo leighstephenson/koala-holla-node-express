@@ -2,9 +2,7 @@ const express = require('express');
 const koalaRouter = express.Router();
 
 // DB CONNECTION
-let koalaArray = [
-
-];
+let koalaArray = [];
 
 // GET
 koalaRouter.get('/', (req, res) => {
@@ -27,9 +25,12 @@ koalaRouter.get('/', (req, res) => {
 
 
 // DELETE
-// koalaRouter.delete('/'), (req, res) => {
-//     console.log(req.params);
-//     //koalaArray = koalaArray.filter((koala,index)=> index != req.params.id);
-//      res.sendStatus(200)
-// };
+koalaRouter.delete( '/:id', (req, res) => {
+    console.log( req.params.id );
+    const deleteIndex = Number( req.params.id );
+    koalaArray = koalaArray.filter( (koala, index) => index !== deleteIndex )
+    res.sendStatus(200);
+});
+
+
 module.exports = koalaRouter;

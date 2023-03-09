@@ -36,6 +36,7 @@ function getKoalas(){
   console.log( 'in getKoalas' );
   axios.get('/koalas').then((response) => {
     console.log(response);
+    let i = 0;
     let koalaArray = response.data;
     let contentDiv = document.querySelector('#viewKoalas');
     contentDiv.innerHTML = '';
@@ -50,8 +51,8 @@ function getKoalas(){
    <td> ${koala.readyForTransfer}  </td>
    <td> ${koala.notes}</td>
    <td> <button onClick="readyforTransfer(transfer)">Ready for Transfer</button></td>
-   <td> <button onClick="deleteRow(button)">Delete</button></td>    
-  </tr>  `; //^ Appends the DOM and creates 2 buttons
+   <td><button id="deleteButton" onclick="deleteKoala(${i})">Delete</button></td>
+   </tr>  `; //^ Appends the DOM and creates 2 buttons
     }
 }).catch((error) => {
     console.log(error);
@@ -72,11 +73,15 @@ function saveKoala(){
 getKoalas();
 
 
+function deleteKoala(index) {
+  console.log(`In delete function`);
+  axios.delete(`/koalas/${index}`).then((response) => {
+    console.log(response);
+    getKoalas();
+  }).catch((error) =>{
+    console.log(error);
+    alert('Something went wrong');
+  })
+};
 
-function deleteRow(button){
-  const row = button.parentNode.parentNode;
-  const tbody = row.parentNode;
-  tbody.removeChild(row);
-// event.target.closest('th').remove();
-}//End removeRow function
 
