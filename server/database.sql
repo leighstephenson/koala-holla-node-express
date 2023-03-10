@@ -14,3 +14,6 @@ VALUES (1, 'Scotty', 'M', 4, 'TRUE',  'Born in Guatamala'),
 	   (4, 'Logan', 'M', 15, 'FALSE', 'Loves the sauna'),
 	   (5, 'Charlie', 'M', 9, 'TRUE', 'Favorite band is Nirvana'),
 	   (6, 'Bets', 'F', 4, 'TRUE', 'Has a pet iguana'); 
+
+
+UPDATE "koalas" SET ready_to_transfer = true WHERE id = 

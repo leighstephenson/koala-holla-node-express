@@ -1,6 +1,18 @@
 console.log( 'js' );
 
 
+//! We began to attempt this stretch, but ran out of time 
+function transfer(){
+  console.log('in transfer function');
+  let readyForTransfer = document.querySelector('#readyForTransferIn').value;
+  let updateButton = document.querySelector('#transfer');
+  if (readyForTransfer === 'Y'){
+    updateButton.style.display = "none";
+  }
+}
+transfer();
+
+
 function addKoala(event) {
   event.preventDefault();
   console.log('In addKoala function')
@@ -49,7 +61,7 @@ function getKoalas(){
    <td> ${koala.gender} </td>
    <td> ${koala.ready_to_transfer}  </td>
    <td> ${koala.notes}</td>
-   <td> <button onClick="readyforTransfer(transfer)">Ready for Transfer</button></td>
+  <td> <button onClick="readyforTransfer(transfer)">Ready for Transfer</button></td>
    <td><button id="deleteButton" onclick="deleteKoala(${koala.id})">Delete</button></td>
    </tr>  `; //^ Appends the DOM and creates 2 buttons
     }
