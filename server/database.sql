@@ -1,10 +1,10 @@
-CREATE TABLE "koalas" (
-    "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR (64),
-    "gender" VARCHAR (1),
-    "age" INT, 
-    "ready_to_transfer" BOOLEAN DEFAULT false,
-    "notes" VARCHAR (128)
+CREATE TABLE koalas (
+	"id" serial PRIMARY KEY,
+	"name" varchar(18) NOT NULL,
+	"gender" varchar(6),
+	"age" integer,
+	"ready_to_transfer" varchar(100),
+	"notes" varchar(50)
 ); 
 
 INSERT INTO "koalas" ("id", "name", "gender", "age", "ready_to_transfer", "notes")
