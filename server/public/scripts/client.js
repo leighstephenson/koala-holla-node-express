@@ -13,10 +13,10 @@ function addKoala(event) {
 // let remove = document.querySelector('#removeIn').value;
 
 let koalaToAdd = { //starts new object
-  koalaName: koalaName,
+  name: koalaName,
   age: age,
   gender: gender,
-  readyForTransfer: readyForTransfer,
+  ready_to_transfer: readyForTransfer,
   notes: notes,
   // markReady: markReady,
   // remove: remove, 
@@ -36,7 +36,6 @@ function getKoalas(){
   console.log( 'in getKoalas' );
   axios.get('/koalas').then((response) => {
     console.log(response);
-    let i = 0;
     let koalaArray = response.data;
     let contentDiv = document.querySelector('#viewKoalas');
     contentDiv.innerHTML = '';
@@ -45,13 +44,13 @@ function getKoalas(){
     for(let koala of koalaArray) {
         contentDiv.innerHTML += `
    <tr> 
-   <td> ${koala.koalaName} </td>
+   <td> ${koala.name} </td>
    <td> ${koala.age}  </td>
    <td> ${koala.gender} </td>
-   <td> ${koala.readyForTransfer}  </td>
+   <td> ${koala.ready_to_transfer}  </td>
    <td> ${koala.notes}</td>
    <td> <button onClick="readyforTransfer(transfer)">Ready for Transfer</button></td>
-   <td><button id="deleteButton" onclick="deleteKoala(${i})">Delete</button></td>
+   <td><button id="deleteButton" onclick="deleteKoala(${koala.id})">Delete</button></td>
    </tr>  `; //^ Appends the DOM and creates 2 buttons
     }
 }).catch((error) => {
@@ -71,7 +70,6 @@ function saveKoala(){
 }
 
 getKoalas();
-
 
 function deleteKoala(index) {
   console.log(`In delete function`);
